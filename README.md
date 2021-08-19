@@ -12,6 +12,7 @@ This template doesn't contain a `setup.py` file and it's by choice.
 ## Setup
 
 ```
+git clone https://github.com/ohidurbappy/python-cli-template.git
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -26,6 +27,7 @@ python main.py
 - gitignore
 - Argument Parsing
 - Cache Key/Value
+- Reading .env files
 
 ## Contributing
 

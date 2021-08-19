@@ -19,6 +19,7 @@ DEBUG = False
 try:
     # import external packages here
     from reusable.functions import splash, print_time_taken
+    from dotenv import load_dotenv, find_dotenv
 except ImportError:
     print(
         """ERROR: Import Error
@@ -29,6 +30,9 @@ Hint: If pip doesn't work try pip3
 """)
     sys.exit()
 
+# load environment variables from .env
+load_dotenv(find_dotenv())
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # setting up argsparse
 parser = argparse.ArgumentParser()
