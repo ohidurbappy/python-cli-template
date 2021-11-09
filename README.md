@@ -28,6 +28,7 @@ python main.py
 - Argument Parsing
 - Cache Key/Value
 - Reading .env files
+- Automatically install missing dependencies
 
 ## Contributing
 

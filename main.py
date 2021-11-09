@@ -21,14 +21,18 @@ try:
     from reusable.functions import splash, print_time_taken
     from dotenv import load_dotenv, find_dotenv
 except ImportError:
-    print(
-        """ERROR: Import Error
-One or more package(s) is not installed.\n
-    Run `pip install -r requirements.txt` in this directory
-
-Hint: If pip doesn't work try pip3
-""")
-    sys.exit()
+    try:
+        print("One or more package(s) is not installed.")
+        print("Trying to install missing modules...")
+        from pip._internal.cli.main import main as pip_install
+        pip_install(['install', '-r', 'requirements.txt'])
+        from reusable.functions import splash, print_time_taken
+        from dotenv import load_dotenv, find_dotenv
+    except:
+        print("Please install missing modules manually")
+        print("Run `pip install -r requirements.txt` in this directory")
+        print("Hint: If pip doesn't work try pip3")
+        sys.exit(1)
 
 # load environment variables from .env
 load_dotenv(find_dotenv())
